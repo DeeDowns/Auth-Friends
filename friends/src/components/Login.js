@@ -13,6 +13,7 @@ const initialCredentials = {
 const Login = () => {
     const [credentials, setCredentials] = useState(initialCredentials)
     const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState('')
     console.log(credentials)
 
     let history = useHistory()
@@ -33,12 +34,13 @@ const Login = () => {
                 console.log(res)
                 localStorage.setItem('token', res.data.payload)
                 setIsLoading(false)
-                history.pushState('/friends')
+                history.push('/friends')
 
             })
             .catch(err => {
                 console.log(err)
-                // setIsLoading(false)
+                setIsLoading(false)
+                setError(err.message)
             })
 
     }
@@ -46,6 +48,7 @@ const Login = () => {
     return (
         <form onSubmit={login}>
             {isLoading ? <p>Loading...</p> : null}
+            {error ? <p>{error}</p> : null}
             <label>Username
                 <input 
                     type='text'
