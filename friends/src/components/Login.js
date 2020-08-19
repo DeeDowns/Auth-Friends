@@ -2,6 +2,9 @@ import React, { useState} from 'react'
 import { useHistory } from 'react-router-dom'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
+import { Form, Button, FormGroup, Label, Input, FormText } from 'reactstrap'
+import '../styles/Login.css'
+
 const initialCredentials = {
     username: '',
     password: ''
@@ -9,8 +12,8 @@ const initialCredentials = {
 
 
 
-// 'i<3Lambd4'
-const Login = () => {
+
+const Login = (props) => {
     const [credentials, setCredentials] = useState(initialCredentials)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
@@ -46,30 +49,32 @@ const Login = () => {
     }
 
     return (
-        <form onSubmit={login}>
-            {isLoading ? <p>Loading...</p> : null}
-            {error ? <p>{error}</p> : null}
-            <label>Username
-                <input 
-                    type='text'
-                    name='username'
-                    id='username'
-                    value={credentials.username}
-                    onChange={handleChange}
-                />
-            </label>
-
-            <label>password
-                <input 
-                    type='password'
-                    name='password'
-                    id='password'
-                    value={credentials.password}
-                    onChange={handleChange}
-                />
-            </label>
-            <button>Login</button>
-        </form>
+        <Form onSubmit={login}>
+            <FormGroup>
+                {isLoading ? <p>Loading...</p> : null}
+                {error ? <p>{error}</p> : null}
+                <Label for='username'>Username</Label>
+                    <Input 
+                        type='text'
+                        name='username'
+                        id='username'
+                        value={credentials.username}
+                        onChange={handleChange}
+                    />
+           </FormGroup>
+            <FormGroup>
+                <Label>Password</Label>
+                    <Input 
+                        type='password'
+                        name='password'
+                        id='password'
+                        value={credentials.password}
+                        onChange={handleChange}
+                    />
+            </FormGroup>
+            
+            <Button color="warning">Login</Button>
+        </Form>
     )
 }
 
