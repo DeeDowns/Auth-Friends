@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  margin: 2% 0;
+}
+
+.navItem {
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  width: 20%;
+ 
+  
+}
+
+
+
+/* .friends {
+  text-align: center
+}
+
+li .nav-item{
+  text-align: center;
+  text-decoration: none;
+} */
+
+
+
+
+
+
+

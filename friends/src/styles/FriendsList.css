@@ -1,0 +1,24 @@
+.friends-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+    border: 3px solid grey;
+}
+
+.friends-title {
+    margin: 3%;
+      
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    border: 3px solid grey;
+}
